@@ -1,0 +1,21 @@
+<md-card>
+  <h2>{{question.title}}</h2>
+
+  <div *ngIf="question.code" [innerHTML]="question.code | safeHtml"></div>
+
+  <div class="section-answer">
+    <h2>Please select the right answer</h2>
+
+    <md-radio-group class="answers">
+      <ul>
+        <li *ngFor="let answer of question.answers; let index=index;">
+          <md-radio-button *ngIf="!hasHTMLAnswer(index)" value="{{index}}">{{answer}}</md-radio-button>
+
+          <md-radio-button *ngIf="hasHTMLAnswer(index)" value="{{index}}">{{getAnswerLetter(index)}}</md-radio-button>
+          <div class="html" *ngIf="hasHTMLAnswer(index)" [innerHTML]="question.answersHTML[index] | safeHtml"></div>
+        </li>
+      </ul>
+    </md-radio-group>
+  </div>
+</md-card>
+

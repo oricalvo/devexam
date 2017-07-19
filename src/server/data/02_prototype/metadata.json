@@ -1,0 +1,9 @@
+{
+  "title": "What will be printed?",
+  "answers": [
+    "undefined",
+    "10",
+    "11",
+    "Exception is thrown"
+  ]
+}
